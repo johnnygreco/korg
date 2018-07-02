@@ -108,7 +108,7 @@ class ModelBase(object):
 class HIIRegions(galsim.GSObject):
     
     def __init__(self, n_regions, flux, r_e, PA=0.0, ell=0.0, 
-                 points_per_region=100, gaussian_sigma=0.1, 
+                 points_per_region=100, gaussian_sigma=1e-6, 
                  r_min=0.0*u.arcsec, cloud_spread=1, sersic_n=1.0):
 
         self._flux = flux
