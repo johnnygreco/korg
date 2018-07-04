@@ -39,7 +39,8 @@ class ModelBase(object):
             self.gal = self._original_gal
 
     def observe(self, psf_fwhm=None, exp_time=60*20*u.s, sky_sb=20,
-                area=subaru_area, pixscale=0.168*u.arcsec/u.pixel):
+                area=subaru_area, pixscale=0.168*u.arcsec/u.pixel, 
+                img_dims=[None, None]):
         
         if psf_fwhm is not None:
             if psf_fwhm != self.psf_fwhm or pixscale != self.pixscale:
@@ -56,7 +57,8 @@ class ModelBase(object):
 
         self.image = self.gal.drawImage(area=area.to('cm2').value,
                                         exptime=exp_time.to('s').value, 
-                                        scale=pixscale.value)
+                                        scale=pixscale.value, 
+                                        nx=img_dims[0], ny=img_dims[1])
         
         self.effective_exp_time = exp_time *  area.to('cm2').value
         self.sky_level_flux = sb_to_photon_flux_per_pixel(
