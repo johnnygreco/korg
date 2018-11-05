@@ -7,9 +7,8 @@ except ImportError:
 
 setup(
     name="korg",
-    version='v0.1',
+    version='0.1',
     author="Johnny Greco",
-    author_email="jgreco@astro.princeton.edu",
     packages=["korg"],
     url="https://github.com/johnnygreco/korg",
     license="MIT"
